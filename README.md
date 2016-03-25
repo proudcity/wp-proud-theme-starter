@@ -10,14 +10,14 @@ There are two ways to use this plugin:
 
 ## Basic usage
 
-#. Rename the `wp-proud-theme-starter` to something descriptive (`my-custom-theme`), and copy it into `./wp-content/themes/`.  Enable the theme in WordPress.
-#. Edit `assets/css/style.css`.
+1. Rename the `wp-proud-theme-starter` to something descriptive (`my-custom-theme`), and copy it into `./wp-content/themes/`.  Enable the theme in WordPress.
+2. Edit `assets/css/style.css`.
 
 
 ## Advanced usage
-#. Edit 
-#. Rename the `wp-proud-theme-starter` to something descriptive (`my-custom-theme`), and copy it into `./wp-content/themes/`.  Enable the theme in WordPress.
-#. Install [nodejs](https://nodejs.org/) and [Bower](http://bower.io). Within your subtheme's directory, run `npm install && bower install`.
-#. Start Gulp to build CSS files from SCSS: `gulp watch`.
-#. Edit the Bootstrap variables in `assets/styles/_variables_override.scss`.  See the [ProudCity Pattern Library local variables file](https://github.com/proudcity/proudcity-patterns/blob/master/app/pattern-scss/_local-variables.scss) for a full list of available variables
-#. Edit additional SCSS code in `assets/styles/`.
+1. Edit 
+2. Rename the `wp-proud-theme-starter` to something descriptive (`my-custom-theme`), and copy it into `./wp-content/themes/`.  Enable the theme in WordPress.
+3. Install [nodejs](https://nodejs.org/) and [Bower](http://bower.io). Within your subtheme's directory, run `npm install && bower install`.
+4. Start Gulp to build CSS files from SCSS: `gulp watch`.
+5. Edit the Bootstrap variables in `assets/styles/_variables_override.scss`.  See the [ProudCity Pattern Library local variables file](https://github.com/proudcity/proudcity-patterns/blob/master/app/pattern-scss/_local-variables.scss) for a full list of available variables
+6. Edit additional SCSS code in `assets/styles/`.
