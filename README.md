@@ -1,5 +1,5 @@
 # wp-proud-theme-starter
-A starter subtheme of [wp-proud-theme](https://github.com/proudcity/wp-proud-theme) to create custom 
+A starter subtheme of [wp-proud-theme](https://github.com/proudcity/wp-proud-theme) to build a customized look and feel for cities.
 
 All bug reports, feature requests and other issues should be added to the [wp-proudcity Issue Queue](https://github.com/proudcity/wp-proudcity/issues).
 
@@ -9,13 +9,12 @@ There are two ways to use this plugin:
 
 
 ## Basic usage
-
 1. Rename the `wp-proud-theme-starter` to something descriptive (`my-custom-theme`), and copy it into `./wp-content/themes/`.  Enable the theme in WordPress.
-2. Edit `assets/css/style.css`.
+2. Add your custom css code to `style.css`.
 
 
 ## Advanced usage
-1. Edit 
+1. Edit `functions.php` and change line 7 to `define('PROUD_SUBTHEME_ADVANCED', true);`.
 2. Rename the `wp-proud-theme-starter` to something descriptive (`my-custom-theme`), and copy it into `./wp-content/themes/`.  Enable the theme in WordPress.
 3. Install [nodejs](https://nodejs.org/) and [Bower](http://bower.io). Within your subtheme's directory, run `npm install && bower install`.
 4. Start Gulp to build CSS files from SCSS: `gulp watch`.
