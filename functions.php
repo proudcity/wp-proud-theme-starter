@@ -7,38 +7,31 @@
 define('PROUD_CHILD_THEME_ADVANCED', false);
 
 /**
- * Load in assets from wp-proud-theme
- */
-$proud_includes = [
-  'lib/assets.php',    // Scripts and stylesheets
-  'lib/extras.php',    // Custom functions
-  'lib/setup.php',     // Theme setup
-  'lib/titles.php',    // Page titles
-  'lib/wrapper.php',   // Theme wrapper class
-  'lib/customizer.php' // Theme customizer
-];
-foreach ($proud_includes as $file) {
-  if (!$filepath = get_template_directory_uri() .'/'. $file) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'proud'), $file), E_USER_ERROR);
-  }
-  require_once $filepath;
-}
-unset($file, $filepath);
-
-wp_enqueue_style('proud-vendor/css', Assets\asset_path('styles/proud-vendor.css'), false, null);
-  wp_enqueue_style('proud/css', Assets\asset_path('styles/proud.css'), false, null);
-
-/**
  * Add child theme asssets
  */
 function add_assets() {
+
+  // In advanced mode
   if (PROUD_CHILD_THEME_ADVANCED) {
-    wp_enqueue_style( 'child-style',
-        get_stylesheet_directory_uri() . '/style.css'
+    global $wp_styles;
+
+    // Dequeue parent css
+    wp_dequeue_style( 'proud-vendor/css' );
+    wp_dequeue_style( 'proud/css' );
+    wp_dequeue_style( 'proud/ie9-and-below' );
+
+    // Enqueue our css
+    wp_enqueue_style( 'proud-child/css',
+        get_stylesheet_directory_uri() . '/dist/styles/style.css'
     );
+    wp_enqueue_style( 'proud-child/ie9-and-below',
+        get_stylesheet_directory_uri() . '/dist/styles/ie9-and-below.css'
+    );
+    $wp_styles->add_data( 'proud-child/ie9-and-below', 'conditional', 'lte IE 9' );
   }
+  // Simple css changes
   else {
-    wp_enqueue_style( 'child-style',
+    wp_enqueue_style( 'proud-child/css',
         get_stylesheet_directory_uri() . '/style.css',
         array( 'proud-vendor/css', 'proud/css' )
     );
@@ -46,4 +39,4 @@ function add_assets() {
   // Optional: override default fonts
   //wp_enqueue_style('external-fonts', '//fonts.googleapis.com/css?family=Lato:400,900,700,300');
 }
-add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_assets' );
+add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_assets', 101);

@@ -18,53 +18,10 @@
     // All pages
     'common': {
       init: function() { // JavaScript to be fired on all pages
-
-        // Agency/subpage off-canvas
-        $('#offcanvas-toggle').on('click', function(e) {
-          $('body').toggleClass('offcanvas-active');
-          $(this).toggleClass('active');
-          e.preventDefault();
-        })
-
-        // Poor man's scrollspy for header
-        var userHasScrolled = false;
-        window.onscroll = function (e){
-          if (!userHasScrolled) {
-            userHasScrolled = true;
-            $('body').addClass('scrolled');
-          }
-          else if(typeof pageYOffset!= 'undefined' && pageYOffset == 0){
-            $('body').removeClass('scrolled');
-            userHasScrolled = false;
-          }
-        }
-
-        // Allow footer-actions dropdowns
-        $('.footer-actions .dropdown-menu').click(function(e) {                   
-          e.stopPropagation();
-        });
-
-        // Open external links in a new tab?
-        if (Proud.settings.global.external_link_window) {
-          $('a').each(function() {
-             var a = new RegExp('/' + window.location.host + '/');
-             if( this.href && !a.test(this.href) && !$(this).hasClass('same-window') ) {
-              $(this).click(function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                window.open(this.href, '_blank');
-              });
-             }
-          });
-        }
-
-        // Link admin_bar logo to proudcity.com
-        $('#wp-admin-bar-wp-logo .ab-item').attr('href', 'http://proudcity.com');
         
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
-        $('.jsn-bootstrap3 + p:empty').remove();
       }
     },
     // Home page

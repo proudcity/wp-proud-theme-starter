@@ -6,21 +6,11 @@
       ],
       "main": true
     },
-    "proud.css": {
+    "style.css": {
       "files": [
-        "styles/proud.scss"
+        "styles/proud-subtheme.scss"
       ],
       "main": true
-    },
-    "proud-vendor.css": {
-      "files": [
-        "styles/proud-vendor.scss"
-      ]
-    },
-    "editor.css": {
-      "files": [
-        "styles/editor.scss"
-      ]
     },
     "ie9-and-below.css": {
       "files": [
