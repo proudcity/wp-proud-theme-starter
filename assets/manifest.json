@@ -12,6 +12,11 @@
       ],
       "main": true
     },
+    "proud-vendor.css": {
+      "files": [
+        "styles/proud-subtheme-vendor.scss"
+      ]
+    },
     "ie9-and-below.css": {
       "files": [
         "styles/ie9-and-below.scss"

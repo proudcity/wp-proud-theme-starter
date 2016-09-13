@@ -4,7 +4,7 @@
  *
  * This is the functions.php for the ProudCity subtheme
  */
-define('PROUD_CHILD_THEME_ADVANCED', false);
+define('PROUD_CHILD_THEME_ADVANCED', true);
 
 /**
  * Add child theme asssets
@@ -21,6 +21,9 @@ function add_assets() {
     wp_dequeue_style( 'proud/ie9-and-below' );
 
     // Enqueue our css
+    wp_enqueue_style( 'proud-child-vendor/css',
+        get_stylesheet_directory_uri() . '/dist/styles/proud-vendor.css'
+    );
     wp_enqueue_style( 'proud-child/css',
         get_stylesheet_directory_uri() . '/dist/styles/style.css'
     );
@@ -32,7 +35,7 @@ function add_assets() {
   // Simple css changes
   else {
     wp_enqueue_style( 'proud-child/css',
-        get_stylesheet_directory_uri() . '/style.css',
+        get_stylesheet_directory_uri() . '/dist/styles/style.css',
         array( 'proud-vendor/css', 'proud/css' )
     );
   }
