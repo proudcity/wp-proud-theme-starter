@@ -44,3 +44,26 @@ function add_assets() {
   //wp_enqueue_style('external-fonts', '//fonts.googleapis.com/css?family=Lato:400,900,700,300');
 }
 add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_assets', 101);
+
+
+/**
+ * Register sidebars
+ */
+function wp_proud_theme_buddypress_widgets_init() {
+
+    register_sidebar([
+        'name'          => __('Header navigation', 'proud'),
+        'id'            => 'header-navigation',
+        'before_widget' => '<ul class="nav nav-pills">',
+        'after_widget'  => '</ul>',
+        'description'   => __('The horizontal header navigation', 'proud')
+    ]);
+
+    register_sidebar([
+        'name'          => __('Right sidebar', 'proud'),
+        'id'            => 'sidebar-buddypress',
+        'description'   => __('The right sidebar for Buddypress blocks', 'proud')
+    ]);
+
+}
+add_action('widgets_init', 'wp_proud_theme_buddypress_widgets_init');
